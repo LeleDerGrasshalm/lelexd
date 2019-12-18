@@ -381,9 +381,6 @@ async def event_friend_message(message):
     elif "!echo" in args[0].lower():
         await client.user.party.send(content)
 
-    elif "!status" in args[0].lower():
-        await client.set_status(content)
-
         await message.reply(f'Status set to {content}')
         print(f'[FORTNITEPY] [{getTime()}] Status set to {content}.')
 
