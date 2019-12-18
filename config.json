@@ -3,13 +3,13 @@
     "password": "",
     "cid": "CID_051_Athena_Commando_M_HolidayElf",
     "bid": "BID_289_Banner",
-    "eid": "EID_Cry",
-    "banner": "otherbanner28",
+    "eid": "EID_DanceMoves",
+    "banner": "otherbanner16",
     "banner_colour": "defaultcolor39",
-    "level": 999,
-    "bp_tier": 999999999,
+    "level": 100,
+    "bp_tier": 100,
     "status": "CC Leledergrasshalm",
-    "platform": "WIN",
+    "platform": "PSN",
     "debug": false,
     "friendaccept": true
 }
