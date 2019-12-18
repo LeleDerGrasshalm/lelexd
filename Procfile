@@ -1,1 +1,1 @@
-worker: python lelexd.py
+worker: python lele.py
