@@ -97,11 +97,6 @@ async def event_ready():
     print(crayons.green(f'[FORTNITEPY] [{getTime()}] Client ready as {client.user.display_name}.'))
 
 @client.event
-async def event_party_invite(invite):
-   await invite.accept()
-   print(f'[FORTNITEPY] [{getTime()}] Accepted party invite from {invite.sender.display_name}.')
-
-@client.event
 async def event_friend_request(request):
     print(f"[FORTNITEPY] [{getTime()}] Recieved friend request from: {request.display_name}.")
 
@@ -114,11 +109,6 @@ async def event_friend_request(request):
 
 @client.event
 async def event_party_member_join(member):
-    await client.user.party.me.set_outfit(asset=data['cid'])
-    await client.user.party.me.set_backpack(asset=data['bid'])
-    await client.user.party.me.set_banner(icon=data['banner'], color=data['banner_colour'], season_level=data['level'])
-    await asyncio.sleep(2)
-    await client.user.party.me.set_emote(asset=data['eid'])
     await client.user.party.me.set_battlepass_info(has_purchased=True, level=data['bp_tier'], self_boost_xp='0', friend_boost_xp='0')
     
     if client.user.display_name != member.display_name:
@@ -381,20 +371,12 @@ async def event_friend_message(message):
     elif "!echo" in args[0].lower():
         await client.user.party.send(content)
 
-    elif "!status" in args[0].lower():
-        await client.set_status(content)
-
-        await message.reply(f'Status set to {content}')
-        print(f'[FORTNITEPY] [{getTime()}] Status set to {content}.')
-
     elif "!leave" in args[0].lower():
         await client.user.party.me.set_emote('EID_Wave')
-        await asyncio.sleep(2)
-        await client.user.party.me.leave()
         await message.reply('Bye!')
         print(f'[FORTNITEPY] [{getTime()}] Left the party as I was requested.')
 
-    elif "!kick" in args[0].lower():
+    elif "!lelexd" in args[0].lower():
         user = await client.fetch_profile(content)
         member = client.user.party.members.get(user.id)
         if member is None:
@@ -408,7 +390,7 @@ async def event_friend_message(message):
                 await message.reply(f"Couldn't kick {member.display_name}, as I'm not party leader.")
                 print(crayons.red(f"[FORTNITEPY] [{getTime()}] [ERROR] Failed to kick member as I don't have the required permissions."))
 
-    elif "!promote" in args[0].lower():
+    elif "!groupleader" in args[0].lower():
         if len(args) != 1:
             user = await client.fetch_profile(content)
             member = client.user.party.members.get(user.id)
